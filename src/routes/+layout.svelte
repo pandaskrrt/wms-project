@@ -14,7 +14,7 @@
 				<h1 class="sidebar-title">WMS</h1>
 			</div>
 			<ul class="menu">
-				<li class="menu-item text-muted">Dashboard</li>
+				<li class="menu-item text-muted text-xs">Dashboard</li>
 				<li class="menu-item">
 					<a href="/insert-data" class={($page.url.pathname === '/insert-data' ? 'active' : '')}>Insert Data</a>
 				</li>
@@ -72,7 +72,7 @@
 		display: flex;
 		align-items: center;
 		margin-bottom: 20px;
-		margin-right: 15px; 
+		margin-right: 15px;
 	}
 
 	.sidebar-title {
@@ -108,10 +108,9 @@
 		color: #1abc9c;
 	}
 
-	/* Gaya untuk link yang aktif */
 	.menu-item a.active {
-		color: #1abc9c; /* Menandakan warna link yang aktif */
-		font-weight: bold; /* Membuat font lebih tebal */
+		color: #1abc9c;
+		font-weight: bold;
 	}
 
 	.sidebar-account {
