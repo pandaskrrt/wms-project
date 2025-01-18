@@ -39,7 +39,7 @@
   <div class="submit-btn-container">
     <button class="submit-btn">Submit Data</button>
   </div>
-  >
+
   <div class="separator"></div>
 
   <div class="title">Data List</div>

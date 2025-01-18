@@ -13,8 +13,12 @@
         <Warehouse class="logo-icon mr-3" />
         <h1 class="sidebar-title">WMS</h1>
       </div>
-      <ul class="menu">
-        <li class="menu-item text-muted text-xs">Dashboard</li>
+      <ul class="menu mt-10 ml-5">
+        <li class="menu-item">
+          <a href="/" class={$page.url.pathname === "/" ? "active" : ""}
+            >Dashboard</a
+          >
+        </li>
         <li class="menu-item">
           <a
             href="/insert-data"
