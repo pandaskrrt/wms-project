@@ -1,7 +1,13 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import "../app.css";
-  import { ChevronsUpDown, Warehouse } from "lucide-svelte";
+  import {
+    ChevronsUpDown,
+    Warehouse,
+    LayoutDashboard,
+    BetweenHorizontalStart,
+    History,
+  } from "lucide-svelte";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
   let { children } = $props();
 </script>
@@ -14,24 +20,29 @@
         <h1 class="sidebar-title">WMS</h1>
       </div>
       <ul class="menu mt-10 ml-5">
-        <li class="menu-item">
-          <a href="/" class={$page.url.pathname === "/" ? "active" : ""}
-            >Dashboard</a
-          >
+        <li class="menu-item flex items-center space-x-3">
+          <LayoutDashboard class="w-5 h-5 active" />
+          <a href="/" class={$page.url.pathname === "/" ? "active" : ""}>
+            Dashboard
+          </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item flex items-center space-x-3">
+          <BetweenHorizontalStart class="w-5 h-5" />
           <a
             href="/insert-data"
             class={$page.url.pathname === "/insert-data" ? "active" : ""}
-            >Insert Data</a
           >
+            Insert Data
+          </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item flex items-center space-x-3">
+          <History class="w-5 h-5" />
           <a
-            href="/barang-keluar"
-            class={$page.url.pathname === "/barang-keluar" ? "active" : ""}
-            >Barang Keluar</a
+            href="/history-order"
+            class={$page.url.pathname === "/history-order" ? "active" : ""}
           >
+            History Order
+          </a>
         </li>
       </ul>
     </div>
@@ -108,11 +119,6 @@
     cursor: pointer;
     border-radius: 4px;
     padding: 8px 10px;
-  }
-
-  .menu-item.text-muted {
-    color: #b0b0b0;
-    cursor: default;
   }
 
   .menu-item a {
