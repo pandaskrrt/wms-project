@@ -12,71 +12,79 @@
   let { children } = $props();
 </script>
 
-<div class="wrapper">
-  <nav class="sidebar">
-    <div class="sidebar-top">
-      <div class="logo-section">
-        <Warehouse class="logo-icon mr-3" />
-        <h1 class="sidebar-title">WMS</h1>
+{#if $page.url.pathname !== "/login"}
+  <div class="wrapper">
+    <nav class="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-section">
+          <Warehouse class="logo-icon mr-3" />
+          <h1 class="sidebar-title">WMS</h1>
+        </div>
+        <ul class="menu mt-10 ml-5">
+          <li class="menu-item flex items-center space-x-3">
+            <LayoutDashboard class="w-5 h-5 active" />
+            <a href="/" class={$page.url.pathname === "/" ? "active" : ""}>
+              Dashboard
+            </a>
+          </li>
+          <li class="menu-item flex items-center space-x-3">
+            <BetweenHorizontalStart class="w-5 h-5" />
+            <a
+              href="/insert-data"
+              class={$page.url.pathname === "/insert-data" ? "active" : ""}
+            >
+              Insert Data
+            </a>
+          </li>
+          <li class="menu-item flex items-center space-x-3">
+            <History class="w-5 h-5" />
+            <a
+              href="/history-order"
+              class={$page.url.pathname === "/history-order" ? "active" : ""}
+            >
+              History Order
+            </a>
+          </li>
+        </ul>
       </div>
-      <ul class="menu mt-10 ml-5">
-        <li class="menu-item flex items-center space-x-3">
-          <LayoutDashboard class="w-5 h-5 active" />
-          <a href="/" class={$page.url.pathname === "/" ? "active" : ""}>
-            Dashboard
-          </a>
-        </li>
-        <li class="menu-item flex items-center space-x-3">
-          <BetweenHorizontalStart class="w-5 h-5" />
-          <a
-            href="/insert-data"
-            class={$page.url.pathname === "/insert-data" ? "active" : ""}
-          >
-            Insert Data
-          </a>
-        </li>
-        <li class="menu-item flex items-center space-x-3">
-          <History class="w-5 h-5" />
-          <a
-            href="/history-order"
-            class={$page.url.pathname === "/history-order" ? "active" : ""}
-          >
-            History Order
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="sidebar-account">
-      <DropdownMenu.Root>
-        <DropdownMenu.Trigger>
-          <button class="account-button">
-            <img
-              src="https://github.com/shadcn.png"
-              alt="User Avatar"
-              class="avatar"
-            />
-            <div class="account-info">
-              <p class="username">John Doe</p>
-              <span class="role">Developer</span>
-            </div>
-            <ChevronsUpDown class="arrow ml-3" />
-          </button>
-        </DropdownMenu.Trigger>
-        <DropdownMenu.Content>
-          <DropdownMenu.Group>
-            <DropdownMenu.Label>My Account</DropdownMenu.Label>
-            <DropdownMenu.Separator />
-            <DropdownMenu.Item>Logout</DropdownMenu.Item>
-          </DropdownMenu.Group>
-        </DropdownMenu.Content>
-      </DropdownMenu.Root>
-    </div>
-  </nav>
+      <div class="sidebar-account">
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger>
+            <button class="account-button">
+              <img
+                src="https://github.com/shadcn.png"
+                alt="User Avatar"
+                class="avatar"
+              />
+              <div class="account-info">
+                <p class="username">John Doe</p>
+                <span class="role">Developer</span>
+              </div>
+              <ChevronsUpDown class="arrow ml-3" />
+            </button>
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content>
+            <DropdownMenu.Group>
+              <DropdownMenu.Label>My Account</DropdownMenu.Label>
+              <DropdownMenu.Separator />
+              <DropdownMenu.Item>Logout</DropdownMenu.Item>
+            </DropdownMenu.Group>
+          </DropdownMenu.Content>
+        </DropdownMenu.Root>
+      </div>
+    </nav>
 
-  <main class="content">
+    <main class="content">
+      {@render children()}
+    </main>
+  </div>
+{/if}
+
+{#if $page.url.pathname === "/login"}
+  <main class="login-content">
     {@render children()}
   </main>
-</div>
+{/if}
 
 <style>
   .wrapper {
